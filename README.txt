@@ -1,58 +1,29 @@
-BALBAL TÜRKÇE — v4, TAŞINABİLİR / AĞ İZOLELİ
+BALBAL TÜRKÇE v5 — AppContainer kaldırıldı
 
-ZIP'i tamamen çıkartın. EXE, _internal ve models klasörleri birlikte kalmalıdır.
-Python, FFmpeg veya model indirmeniz gerekmez. Yönetici yetkisi gerekmez.
+GÜNCELLEME: Önce açık Balbal uygulamalarını kapatın. Güncelleme ZIP'inin içindeki
+dosyaları v4 paketindeki BalbalTurkce klasörüne çıkartın; aynı adları değiştirin.
+models ve _internal klasörlerini koruyun. Modeli yeniden indirmek gerekmez.
+Bu güncelleme v4 paketinin üzerine uygulanır; tek başına çalıştırılmaz.
 
-BalbalTurkce.exe: tek dosya için arayüz.
-BalbalIzleyici.exe: pencere açıkken aynı dizindeki ses/video dosyalarını izler.
-Pencere kapanınca izleyici ve FFmpeg alt işlemi durur.
+BalbalTurkce.exe ve BalbalIzleyici.exe normal kullanıcı süreçleri olarak açılır.
+AppContainer profili oluşturulmaz, klasör ACL/bütünlük etiketleri değiştirilmez.
+Önceki sürümün Windows'ta oluşturduğu profiller kullanılmaz.
 
-AĞ ERİŞİMİ
-Normal başlangıçta yalnızca standart Python/Windows başlatıcısı çalışır ve
-uygulamayı ağ yetkisi olmayan Windows AppContainer içinde yeniden başlatır.
-Model motoru ve FFmpeg bu izolasyon içinde çalışır. internetClient, özel ağ veya
-sunucu yetkisi verilmez. Yönetici hesabı ve güvenlik duvarı kuralı kullanılmaz.
-İzolasyon kurulamazsa uygulama hata verir; normal/ağ erişimli çalışmaya geçmez.
-ONNX telemetrisi başlatılmadan kapatılır. Python socket işlemleri de reddedilir.
-Hugging Face indirme kütüphanesi ve hf-xet EXE paketine dahil değildir.
+Model yalnızca EXE yanındaki models\balbal-v2-manas klasöründen yüklenir.
+Model indirme kaldırılmıştır. ONNX/Hugging Face telemetrisi kapalı tutulur.
+Python socket çağrıları engellenir; Windows düzeyinde ağ izolasyonu YOKTUR.
+Bu ayarlar tüm yerel DLL'ler için işletim sistemi düzeyinde ağ engeli sayılmaz.
 
-DOSYA ERİŞİMİ
-İşlenecek ses/video dosyalarını uygulamanın bulunduğu klasöre kopyalayın.
-Model yalnızca models\balbal-v2-manas içinden yüklenir. Dosya eksikse indirme
-denenmez. Arayüzün TXT kaydetme yeri transcript klasörüdür.
-Model/uygulama klasörüne sandbox için okuma/çalıştırma izni; data ve transcript
-klasörlerine yazma izni otomatik verilir. Bu iki klasöre düşük bütünlük etiketi
-uygulanır. Kullanıcı hesabınızın mevcut erişimi kaldırılmaz.
-Windows her paket konumu için yerel bir AppContainer profili oluşturur. Bu profil
-ZIP'in parçası değildir; yeni bilgisayarda veya konumda otomatik oluşturulur.
-Kurum politikası AppContainer oluşturulmasını engelliyorsa uygulama çalışmaz.
+İzleyici pencere açıkken çalışır, kapanınca alt süreçleri durdurur.
+MP3/M4A/video dönüşümü için FFmpeg pakete dahildir.
+Çıktılar: transcript\dosya.mp3.txt. Mevcut TXT'ler atlanır.
 
-MODELLER
-models\balbal-v2-manas\model.json
-models\balbal-v2-manas\onnx\model.onnx
-models\balbal-v2-manas\onnx\model.onnx.data
-models\balbal-v2-manas\lm\model.binary
-models\balbal-v2-manas\lm\tokenizer.model
-
-İZLEYİCİ
-Dosyalar alfabetik sırayla tek tek işlenir; alt klasörler taranmaz.
-Her 5 saniyede tarama yapılır; dosya 10 saniye değişmeden kalınca işlenir.
-Örnek: kayit.mp3 -> transcript\kayit.mp3.txt
-Aynı TXT mevcutsa üzerine yazılmaz. Hatalı dosya diğerlerini durdurmaz.
-Başlangıç, bitiş, süre ve hatalar pencerede; kalıcı günlük transcript\islem.log'da.
-data klasöründe yerel hata kayıtları ve geçici dosyalar bulunur.
-Kaynak dosyalar değiştirilmez. Bu ZIP çalışma günlükleri ve örnek ses içermez.
-
-Bu bir kayıtlı Windows servisi değildir. Otomatik başlangıca eklenmez.
-Eski v2/v3 EXE'ler bu sürümün ağ izolasyonunu kazanmaz; yeni EXE'leri kullanın.
-
-DERLEME: Windows, Python 3.12
-.venv\Scripts\python -m pip install -r requirements.txt
-Model dosyalarını yukarıdaki yapıda models klasörüne yerleştirin.
-powershell -ExecutionPolicy Bypass -File build.ps1
-Doğrudan Python betiklerini çalıştırmak otomatik Windows izolasyonunu başlatmaz;
-dağıtım için build.ps1 ile üretilen EXE'leri kullanın.
+WINDOWS UYARISI
+Bu EXE'ler Authenticode ile imzalı değildir. SmartScreen / Smart App Control
+uyarısının AppContainer kaldırılarak giderileceği garanti edilmez.
+Güvenilir yayımlayıcı doğrulaması için güvenilir sağlayıcıdan kod imzası gerekir.
+Yeni imzalı sürümlerde dahi itibar oluşana kadar uyarı görülebilir.
+Bu paket Windows güvenlik ayarlarını değiştirmez ve engelleri aşmaz.
 
 Powered by balbal — https://github.com/erayyap/balbal
-Model ağırlıkları: balbal Community License 1.1.
-FFmpeg ve diğer bağımlılıklar için licenses klasörüne bakın.
+Model lisansı: balbal Community License 1.1. Diğer lisanslar licenses klasöründe.

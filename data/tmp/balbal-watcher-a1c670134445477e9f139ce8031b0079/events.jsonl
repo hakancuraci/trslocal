@@ -1,0 +1,4 @@
+{"kind": "loading", "file": "", "message": "EXE yanındaki yerel model yükleniyor…", "time": "2026-11-17T02:25:42.066373+03:00"}
+{"kind": "ready", "file": "", "message": "Klasör izleniyor. Yeni dosyaların sabit kalması bekleniyor.", "time": "2026-11-17T02:25:46.149998+03:00"}
+{"kind": "processing", "file": "first-test2.mp3", "message": "İşleniyor", "time": "2026-11-17T02:25:56.159473+03:00"}
+{"kind": "error", "file": "first-test2.mp3", "message": "Pakete dahil FFmpeg bulunamadı; sistemden program aranmayacak.", "time": "2026-11-17T02:25:56.203885+03:00"}

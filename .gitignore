@@ -1,3 +1,5 @@
 /models/balbal-v2-manas/lm/model.binary
 /models/balbal-v2-manas/onnx/model.onnx.data
 /_internal/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v9.0.2.exe
+/models/
+/artifacts_path.txt

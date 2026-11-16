@@ -2,3 +2,22 @@
 2026-11-17 01:32:29,585 INFO Yerel model yükleniyor; otomatik indirme ve Python ağ erişimi kapalı.
 2026-11-17 01:32:49,266 INFO BAŞLADI: first-test.mp3
 2026-11-17 01:32:57,583 INFO TAMAMLANDI: first-test.mp3 -> first-test.mp3.txt
+2026-11-17 02:24:29,620 INFO İzleyici başladı: C:\Users\curac\Desktop\Projeler\trslocal | Powered by balbal — https://github.com/erayyap/balbal
+2026-11-17 02:24:29,620 INFO Yerel model yükleniyor; otomatik indirme ve Python ağ erişimi kapalı.
+2026-11-17 02:24:29,622 ERROR İzleyici başlatılamadı. Sorunu giderdikten sonra EXE dosyasını yeniden açın.
+Traceback (most recent call last):
+  File "watcher.py", line 138, in main
+  File "offline_runtime.py", line 44, in load_model
+  File "offline_runtime.py", line 37, in model_path
+FileNotFoundError: Yerel model eksik. Otomatik indirme kapalı.
+Klasör: C:\Users\curac\Desktop\Projeler\trslocal\models\balbal-v2-manas
+Eksik: model.json, onnx/model.onnx, onnx/model.onnx.data, lm/model.binary, lm/tokenizer.model
+2026-11-17 02:25:42,064 INFO İzleyici başladı: C:\Users\curac\Desktop\Projeler\trslocal | Powered by balbal — https://github.com/erayyap/balbal
+2026-11-17 02:25:42,064 INFO Yerel model yükleniyor; otomatik indirme ve Python ağ erişimi kapalı.
+2026-11-17 02:25:56,159 INFO BAŞLADI: first-test2.mp3
+2026-11-17 02:25:56,203 ERROR HATA: first-test2.mp3; diğer dosyalarla devam ediliyor
+Traceback (most recent call last):
+  File "watcher.py", line 73, in scan
+  File "media_runtime.py", line 49, in transcribe_media
+  File "media_runtime.py", line 38, in ffmpeg_path
+FileNotFoundError: Pakete dahil FFmpeg bulunamadı; sistemden program aranmayacak.
